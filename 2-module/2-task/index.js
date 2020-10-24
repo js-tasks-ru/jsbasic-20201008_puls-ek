@@ -4,5 +4,8 @@
  * @returns {Boolean}
  */
 function isEmpty(obj) {
-  // ваш код...
+  // сорри за мой английский
+  let qtyProp = 0;
+  for(key in obj){ qtyProp = qtyProp + 1;}
+  return !qtyProp;
 }
