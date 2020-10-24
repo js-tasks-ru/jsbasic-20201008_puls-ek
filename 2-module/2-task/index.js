@@ -8,4 +8,5 @@ function isEmpty(obj) {
   let qtyProp = 0;
   for(key in obj){ qtyProp = qtyProp + 1;}
   return !qtyProp;
+  
 }
