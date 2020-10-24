@@ -11,7 +11,7 @@ let calculator = {
   
   mul : function(){
 				return this.peremA * this.peremB;
-			}
+			},
 		
   peremA: 0,
   peremB: 0
