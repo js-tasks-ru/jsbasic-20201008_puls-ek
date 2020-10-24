@@ -4,5 +4,16 @@
  * @returns {Number}
  */
 function sumSalary(salaries) {
-  // ваш код...
+	
+	let sum = 0;
+	
+	//if(typeof salaries != "object") return 0;
+	
+	for (key in salaries) {
+		if(typeof salaries[key] == "number") {
+			sum = sum + salaries[key];
+		}
+	}
+	
+	return sum;
 }
