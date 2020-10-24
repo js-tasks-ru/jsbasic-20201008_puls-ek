@@ -9,7 +9,8 @@ function checkSpam(str) {
 	str = str.trim().toLowerCase();
 		
 	if (firstTest(str)) {
-			return (str.includes("1xbet") || str.includes("xxx"));			
+			return (str.includes("1xbet") || str.includes("xxx"));
+			
 		}
 		
 	return false;	
