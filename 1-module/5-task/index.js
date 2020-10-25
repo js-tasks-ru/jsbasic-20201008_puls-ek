@@ -4,19 +4,23 @@
  * @param {number} maxlength
  * @returns {string}
  */
-function truncate(str, maxlength) {
-		
-	if (firstTest(str, maxlength)) {
-			str = str.slice(0, maxlength-1) + "…";
-			return str;
+		function truncate(str, maxlength) {
+
+			//if (firstTest(str, maxlength)) {
 			
+			if (str.length > maxlength) {
+					str = str.slice(0, maxlength-1) + "…";
+					return str;
+				} else return str;	
 		}
-		
-	return str;	
-}
 
-
-function firstTest(str, maxlength){
-		if (!str || typeof str != 'string' || str.length <= maxlength ) return false; 
-		return true;
-	}
+		/*function firstTest(str, maxlength){
+				
+				/*alert(!str);
+				alert(typeof str);
+				alert(str.length);
+				
+				if (!str || typeof str != "string" || str.length <= maxlength) return false; 
+				return true;
+				
+			}*/
