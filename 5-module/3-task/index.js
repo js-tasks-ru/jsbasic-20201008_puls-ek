@@ -25,13 +25,16 @@ function initCarousel() {
 		processor.slide 	     = massSlides[0];
 		processor.qtySlides		 = massSlides.length;
 		processor.current  		 = 1;
+		processor.firstClick  	 = true;
 		
 		processor.move = function (direction, arrow){
 							
 				if(this.current == 1) {this.arrowLeft.style.display = '';}
 				if(this.current == 4) {this.arrowRight.style.display = '';}
-				this.slideWidth = this.slide.offsetWidth; 
-				this.carouselLeft = this.carousel.offsetLeft;
+				
+				this.slideWidth  = this.carousel.offsetWidth; 
+				if(this.firstClick) {this.firstClick = false; this.carouselLeft = this.carousel.offsetLeft;}
+				
 				
 				if(direction == "right" && this.current == this.qtySlides-1){
 					//передвигаем на последний слайдер и скрываем кнопку
@@ -45,6 +48,7 @@ function initCarousel() {
 				
 				if(direction == "right" && this.current < this.qtySlides){
 					//cдвигаем влево
+					alert("Привет");
 					this.current = this.current + 1;
 					this.carouselLeft = this.carouselLeft - this.slideWidth;
 					this.carousel.style.transform = "translateX(" + String(this.carouselLeft) + "px)";
