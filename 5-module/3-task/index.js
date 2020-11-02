@@ -48,7 +48,7 @@ function initCarousel() {
 				
 				if(direction == "right" && this.current < this.qtySlides){
 					//cдвигаем влево
-					alert("Привет");
+					//alert("Привет");
 					this.current = this.current + 1;
 					this.carouselLeft = this.carouselLeft - this.slideWidth;
 					this.carousel.style.transform = "translateX(" + String(this.carouselLeft) + "px)";
