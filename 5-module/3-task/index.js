@@ -1,13 +1,11 @@
 
 function initCarousel() {
   
-	  let Container, 
-		  Carousel,
+	  let carousel,
 		  arrowLeft,
 		  arrowRight;
 	  
 		// элементы с которыми работаем
-		container  = document.body.querySelector(".carousel");	
 		carousel   = document.body.querySelector(".carousel__inner");
 		massSlides = document.body.querySelectorAll(".carousel__slide");
 		arrowLeft  = document.body.querySelector(".carousel__arrow.carousel__arrow_left");	
@@ -20,9 +18,6 @@ function initCarousel() {
 		processor.arrowLeft 	 = arrowLeft; // DIV влево
 		processor.arrowRight 	 = arrowRight; // DIV вправо
 		processor.carousel	  	 = carousel; // DIV carousel	
-		//processor.carouselLeft   = 0;	
-		//processor.slideWidth 	 = 0;
-		processor.slide 	     = massSlides[0];
 		processor.qtySlides		 = massSlides.length;
 		processor.current  		 = 1;
 		processor.firstClick  	 = true;
@@ -33,7 +28,7 @@ function initCarousel() {
 				if(this.current == 4) {this.arrowRight.style.display = '';}
 				
 				this.slideWidth  = this.carousel.offsetWidth; 
-				if(this.firstClick) {this.firstClick = false; this.carouselLeft = this.carousel.offsetLeft;}
+				if(this.firstClick) {this.firstClick = false; this.carouselLeft = 0;}
 				
 				
 				if(direction == "right" && this.current == this.qtySlides-1){
@@ -48,7 +43,7 @@ function initCarousel() {
 				
 				if(direction == "right" && this.current < this.qtySlides){
 					//cдвигаем влево
-					//alert("Привет");
+					alert("Привет");
 					this.current = this.current + 1;
 					this.carouselLeft = this.carouselLeft - this.slideWidth;
 					this.carousel.style.transform = "translateX(" + String(this.carouselLeft) + "px)";
