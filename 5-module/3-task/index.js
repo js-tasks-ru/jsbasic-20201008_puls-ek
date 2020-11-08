@@ -19,6 +19,7 @@ function initCarousel() {
 		processor.arrowRight 	 = arrowRight; // DIV вправо
 		processor.carousel	  	 = carousel; // DIV carousel	
 		processor.qtySlides		 = massSlides.length;
+		processor.carouselLeft = 0;
 		processor.current  		 = 1;
 		processor.firstClick  	 = true;
 		
@@ -28,7 +29,7 @@ function initCarousel() {
 				if(this.current == 4) {this.arrowRight.style.display = '';}
 				
 				this.slideWidth  = this.carousel.offsetWidth; 
-				if(this.firstClick) {this.firstClick = false; this.carouselLeft = 0;}
+				if(this.firstClick) {this.firstClick = false; /*this.carouselLeft = 0;*/}
 				
 				
 				if(direction == "right" && this.current == this.qtySlides-1){
