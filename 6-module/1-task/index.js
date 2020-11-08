@@ -67,6 +67,7 @@ export default class UserTable {
             
 			if(head) {
 				switch(counter) {
+          
 						case 0: th.textContent = "Имя" ; break;
 						case 1: th.textContent = "Возраст" ; break;
 						case 2: th.textContent = "Зарплата" ; break;
