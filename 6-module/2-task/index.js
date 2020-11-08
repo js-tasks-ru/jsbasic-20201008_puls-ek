@@ -22,7 +22,6 @@ export default class ProductCard {
       this.elem.insertAdjacentHTML("afterbegin", template);
       let elementBut = this.elem.querySelector('.card__button');
       elementBut.addEventListener("click", () => this.onClick());
-      //this.elem.addEventListener("product-add", () => alert('Спасибо!'));
     }
 
     onClick () {
