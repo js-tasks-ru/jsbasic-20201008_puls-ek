@@ -74,7 +74,7 @@ export default class Modal {
     this.openWindow = false;
 
     // обработчик для Esc
-    document.body.addEventListener("keydown", (event) => this.keydown(event)); 
+    document.body.addEventListener("keydown", this.fnKeydown = (event) => this.keydown(event)); 
 
     // обработчик для крестика
     let modalClose = this.elem.querySelector(".modal__close");
@@ -87,14 +87,17 @@ export default class Modal {
 
   // --- open() ---
   open(){
-    this.container.append(this.elem);
+    document.body.append(this.elem);
     document.body.classList.add("is-modal-open"); 
     this.openWindow = true;
   }
   // --- open() ---
-
-  setTitle(text){ this.modalTitle.insertAdjacentText("afterBegin", text); } //this.modalTitle.textContent = text; }
-  setBody(node){ this.modalBody.append(node); } //this.modalBody.append(elem); }
+  setTitle(text){ this.modalTitle.textContent = text;} 
+  setBody(node){ 
+      // удаляем все вложенные элементы
+      while (this.modalBody.firstChild) { this.modalBody.removeChild(this.modalBody.firstChild);}
+      this.modalBody.append(node); 
+    }
 
   // --- tempModal() ---
   tempModal(){
@@ -116,7 +119,9 @@ export default class Modal {
   // --- close() ---
   close(){
     this.elem.remove();
-    document.body.classList.remove("is-modal-open"); 
+    document.body.classList.remove("is-modal-open");
+    alert(this.fnKeydown);
+    document.body.removeEventListener("keydown", this.fnKeydown); 
   }
   // --- close() ---
 
