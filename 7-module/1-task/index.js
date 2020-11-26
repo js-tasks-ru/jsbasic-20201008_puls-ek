@@ -10,17 +10,9 @@ export default class RibbonMenu {
     this.elem = document.createElement("div");
     this.elem.classList.add("ribbon");
 
-    let butLeft = `<button class="ribbon__arrow ribbon__arrow_left">
-      <img src="/assets/images/icons/angle-icon.svg" alt="icon">
-    </button>`;
-
-    let butRight = `<button class="ribbon__arrow ribbon__arrow_right ribbon__arrow_visible">
-      <img src="/assets/images/icons/angle-icon.svg" alt="icon">
-    </button>`;
-
-    this.elem.insertAdjacentHTML("beforeend", butLeft);
+    this.elem.insertAdjacentHTML("beforeend", this.createButtonLeftRight("right"));
     this.elem.append(this.createLinks());// cсоздаем ссылки
-    this.elem.insertAdjacentHTML("beforeend", butRight);
+    this.elem.insertAdjacentHTML("beforeend", this.createButtonLeftRight("left"));
  
     // элементы с которыми работаем
     this.arrowLeft    = this.elem.querySelector('button.ribbon__arrow_left');
@@ -33,6 +25,25 @@ export default class RibbonMenu {
     this.ribbonInner.addEventListener("scroll", (event) => this.scrollRibbon(event));
     this.ribbonInner.addEventListener("click",  (event) => this.clickRibbon(event));
   }
+
+  //--- createButtonLeftRight() ---
+  createButtonLeftRight(param) {
+   
+    let button;
+
+    if(param == "left"){ 
+            button = `<button class="ribbon__arrow ribbon__arrow_left">
+            <img src="/assets/images/icons/angle-icon.svg" alt="icon">
+            </button>`;
+          return button;}
+
+    if(param == "right"){ 
+            button = `<button class="ribbon__arrow ribbon__arrow_right ribbon__arrow_visible">
+              <img src="/assets/images/icons/angle-icon.svg" alt="icon">
+              </button>`;
+            return button;}
+    }
+  //--- createButtonLeftRight() ---
 
   // --- clickRibbon() ---
   clickRibbon(event) {   

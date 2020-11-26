@@ -30,8 +30,13 @@ export default class StepSlider {
   generateSpan(steps) {
       let tempSpan = "";
       for(let i=0; i<steps; i++){
-          tempSpan = tempSpan + ((i==0) ? `<span class="slider__step-active"></span>` : `<span></span>`);
-          //tempSpan = tempSpan + `<span class="slider__step-active"></span>`;
+          
+        if(i==0){
+
+            tempSpan = tempSpan + `<span class="slider__step-active"></span>`;
+             
+          } else {tempSpan = tempSpan + `<span></span>`;}
+
         } 
       return tempSpan;
     } // --- конец ---
